@@ -6,7 +6,7 @@
 # catalog-version undef
 Name:		texlive-dithesis
 Version:	20140622
-Release:	3
+Release:	4
 Summary:	TeXLive dithesis package
 Group:		Publishing
 URL:		http://tug.org/texlive
