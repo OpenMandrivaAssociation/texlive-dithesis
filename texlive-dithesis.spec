@@ -5,7 +5,7 @@
 # catalog-license undef
 # catalog-version undef
 Name:		texlive-dithesis
-Version:	20170414
+Version:	0.2
 Release:	1
 Summary:	TeXLive dithesis package
 Group:		Publishing
