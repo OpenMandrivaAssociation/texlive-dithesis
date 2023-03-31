@@ -1,6 +1,6 @@
 Name:		texlive-dithesis
 Version:	34295
-Release:	1
+Release:	2
 Summary:	TeXLive dithesis package
 Group:		Publishing
 URL:		http://tug.org/texlive
