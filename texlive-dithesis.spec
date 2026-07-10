@@ -1,44 +1,27 @@
-Name:		texlive-dithesis
-Version:	34295
-Release:	2
-Summary:	TeXLive dithesis package
+%global tl_name dithesis
+%global tl_revision 79618
+
+Name:		texlive-%{tl_name}
+Epoch:		1
+Version:	0.2
+Release:	%{tl_revision}.1
+Summary:	A class for undergraduate theses at the University of Athens
 Group:		Publishing
-URL:		https://tug.org/texlive
-License:	http://www.tug.org/texlive/LICENSE.TL
-Source0:	http://mirrors.ctan.org/systems/texlive/tlnet/archive/dithesis.r%{version}.tar.xz
-Source1:	http://mirrors.ctan.org/systems/texlive/tlnet/archive/dithesis.doc.r%{version}.tar.xz
+URL:		https://www.ctan.org/tex-archive/macros/latex/contrib/dithesis
+License:	lppl1.3
+Source0:	https://mirrors.ctan.org/systems/texlive/tlnet/archive/dithesis.r%{tl_revision}.tar.xz
+Source1:	https://mirrors.ctan.org/systems/texlive/tlnet/archive/dithesis.doc.r%{tl_revision}.tar.xz
 BuildArch:	noarch
+BuildSystem:	texlive
 BuildRequires:	texlive-tlpkg
-Requires(pre):	texlive-tlpkg
-Requires(post):	texlive-kpathsea
+%texlive_base_requires
+Provides:	texlive(%{tl_name}) = %{tl_revision}
 
 %description
-TeXLive dithesis package.
+The class conforms to the requirements of the Department of Informatics
+and Telecommunications at the University of Athens regarding the
+preparation of undergraduate theses, as of Sep 1, 2011. The class is
+designed for use with XeLaTeX; by default (on a Windows platform), the
+font Arial is used, but provision is made for use under Linux (with a
+different sans-serif font).
 
-%post
-%{_sbindir}/texlive.post
-
-%postun
-if [ $1 -eq 0 ]; then
-	%{_sbindir}/texlive.post
-fi
-
-#-----------------------------------------------------------------------
-%files
-%{_texmfdistdir}/tex/latex/dithesis/dithesis.cls
-%doc %{_texmfdistdir}/doc/latex/dithesis/README
-%doc %{_texmfdistdir}/doc/latex/dithesis/athena.jpg
-%doc %{_texmfdistdir}/doc/latex/dithesis/sample.pdf
-%doc %{_texmfdistdir}/doc/latex/dithesis/sample.tex
-%doc %{_texmfdistdir}/doc/latex/dithesis/sampleNoArial.pdf
-%doc %{_texmfdistdir}/doc/latex/dithesis/sampleNoArial.tex
-
-#-----------------------------------------------------------------------
-%prep
-%autosetup -p1 -c -a1
-
-%build
-
-%install
-mkdir -p %{buildroot}%{_texmfdistdir}
-cp -fpar tex doc %{buildroot}%{_texmfdistdir}
